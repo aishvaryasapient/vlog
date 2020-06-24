@@ -1,0 +1,1 @@
+exports.generateToken = require('./create')

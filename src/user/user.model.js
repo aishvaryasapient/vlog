@@ -29,9 +29,10 @@ const userSchema = new Schema({
         required:true
     },
     phone:{
-        type: Number
+        type: Number,
+        unique:'Phone is already exists'
     },
-    role:[{type:String,enum:ROLES}]
+    role:{type:String,enum:ROLES}
 },schemaOption)
 
 module.exports = mongoose.model('user',userSchema)

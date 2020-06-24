@@ -29,7 +29,7 @@ app.use(errorHandler);
 //   });
 const connect = async (req,res)=>{
     try{
-      await  mongoose.connect(process.env.ATLAS_URL,{useNewUrlParser:true,useUnifiedTopology:true,useFindAndModify:true})
+      await  mongoose.connect(process.env.ATLAS_URL,{useNewUrlParser:true,useUnifiedTopology:true,useFindAndModify:true,useCreateIndex:true})
     }catch(err){
         console.log('Mongoose Error',err)
     }

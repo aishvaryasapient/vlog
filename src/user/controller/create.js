@@ -1,7 +1,10 @@
 const USER = require('./../user.model');
 
+const {hashPassword} = require('./../../../utils/encode-decode');
+
 const createUser = async (req,res,next)=>{
     const body =req.body;
+    body.password = await hashPassword(body.password)
     const user  = new USER(body);
     return user.save().then((result)=>{
         return res.status(201).send({
